@@ -21,4 +21,13 @@ class Repo {
 
     @SerializedName("description")
     val description: String? = null
+
+    @SerializedName("language")
+    val language: String? = null
+
+    @SerializedName("stargazers_count")
+    val starCount: Int? = null
+
+    @SerializedName("open_issues_count")
+    val openIssuesCount: Int? = null
 }

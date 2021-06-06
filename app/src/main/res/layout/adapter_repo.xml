@@ -34,6 +34,7 @@
                 tools:text="Name" />
 
             <TextView
+                android:id="@+id/tv_desc"
                 style="@style/MyTextViewRegular"
                 android:layout_marginTop="@dimen/main_spacing_small"
                 android:text="@{repoAdapterVM.tvDescription}"
@@ -41,6 +42,52 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_name"
                 tools:text="Description" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/main_spacing_big"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/tv_desc">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_star"
+                    app:tint="@color/colorAccent" />
+
+                <TextView
+                    style="@style/MyTextViewRegular"
+                    android:layout_marginStart="@dimen/main_spacing_small"
+                    android:text="@{repoAdapterVM.tvStarCount}"
+                    tools:text="10" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/main_spacing_big"
+                    android:src="@drawable/ic_issues"
+                    app:tint="@color/colorAccent" />
+
+                <TextView
+                    style="@style/MyTextViewRegular"
+                    android:layout_marginStart="@dimen/main_spacing_small"
+                    android:text="@{repoAdapterVM.tvOpenIssues}"
+                    tools:text="11" />
+
+                <TextView
+                    style="@style/MyTextViewRegular"
+                    android:layout_marginStart="@dimen/main_spacing_big"
+                    android:text="@string/language" />
+
+                <TextView
+                    style="@style/MyTextViewBold"
+                    android:layout_marginStart="@dimen/main_spacing_small"
+                    android:text="@{repoAdapterVM.tvLanguage}"
+                    tools:text="Kotlin" />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

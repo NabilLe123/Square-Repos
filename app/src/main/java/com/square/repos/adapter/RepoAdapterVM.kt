@@ -9,8 +9,20 @@ class RepoAdapterVM(private var repo: Repo) : BaseObservable() {
         return repo.name
     }
 
-    fun tvDescription(): String? {
-        return repo.description
+    fun tvDescription(): String {
+        return repo.description ?: "-nil-"
+    }
+
+    fun tvStarCount(): String {
+        return repo.starCount.toString()
+    }
+
+    fun tvOpenIssues(): String {
+        return repo.openIssuesCount.toString()
+    }
+
+    fun tvLanguage(): String {
+        return repo.language ?: "-nil-"
     }
 
     fun setRepo(repo1: Repo) {
