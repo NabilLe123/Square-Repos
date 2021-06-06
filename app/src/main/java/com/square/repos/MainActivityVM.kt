@@ -12,10 +12,23 @@ import retrofit2.Response
 
 class MainActivityVM : ViewModel() {
     var isLoading = ObservableBoolean(true)
+    var isRefreshing = ObservableBoolean(false)
+
     val repos = MutableLiveData<List<Repo>>()
     val errorData = MutableLiveData<Throwable>()
 
-    fun loadRepos() {
+    init {
+        loadRepos()
+    }
+
+    fun onRefresh() {
+        isLoading.set(true)
+        isRefreshing.set(true)
+
+        loadRepos()
+    }
+
+    private fun loadRepos() {
         val call: Call<List<Repo>?> = ApiClient.getApiInterface().getSquareRepos()
         call.enqueue(object : Callback<List<Repo>?> {
             override fun onResponse(
@@ -46,5 +59,6 @@ class MainActivityVM : ViewModel() {
 
     private fun loadingFinish() {
         isLoading.set(false)
+        isRefreshing.set(false)
     }
 }

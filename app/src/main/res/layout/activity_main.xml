@@ -28,12 +28,19 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible" />
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_repo"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:onRefreshListener="@{() -> mainActivityVM.onRefresh()}"
+            app:refreshing="@{mainActivityVM.isRefreshing}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_repo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

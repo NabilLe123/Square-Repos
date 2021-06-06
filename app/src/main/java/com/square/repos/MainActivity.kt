@@ -23,8 +23,6 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding.mainActivityVM = mainActivityVM
 
         setRecyclerViewRepo(activityMainBinding.rvRepo)
-        mainActivityVM.loadRepos()
-
         mainActivityVM.repos.observe(this, {
             repoAdapter.addData(it)
         })
